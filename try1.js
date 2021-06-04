@@ -1,4 +1,4 @@
-//---------------EDGE---------------------//
+//-----------------EDGE-----------------------//
 class Edge {
     constructor(source, destination, edgeWeight) {
         this.u=source;
