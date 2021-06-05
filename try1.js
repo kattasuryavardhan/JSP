@@ -237,7 +237,7 @@ class Heap {
 // g.comparingEdgesSet.unshift(g.mst);
 // includer()
 var canvas = document.querySelector('canvas');
-canvas.width = window.innerWidth/2;
+canvas.width = 3*window.innerWidth/4;
 canvas.height = window.innerHeight;
 var cc = canvas.getContext('2d');
 cc.fillStyle = 'black'
@@ -246,7 +246,7 @@ cc.fillRect(0, 0, canvas.width, canvas.height);
 
 
 var canvas2 = document.getElementById('myCanvas2');
-canvas2.width = window.innerWidth/3;
+canvas2.width = window.innerWidth/4;
 canvas2.height = window.innerHeight;
 document.getElementById("myCanvas2").style.height = window.innerHeight;
 var cc2 = canvas2.getContext('2d');
