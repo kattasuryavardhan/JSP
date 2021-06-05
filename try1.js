@@ -73,11 +73,17 @@ class Graph {
         this.nVertices = nVertices;
         var w = document.getElementById("myCanvas").width
         var h = document.getElementById("myCanvas").height
-        this.center = new CoOrdinate(w/2, 50+(h/3));
+        // this.center = new CoOrdinate(w/2+20, 50+(h/3));
+        this.center = new CoOrdinate((w/2)-145, (h/2)-65);
         this.graphRadius = 220;
         this.vertexRadius=25;
-        if(this.nVertices>8)
-            this.graphRadius = 240
+        // if(this.nVertices>8)
+        //     this.graphRadius = 240
+        if(w<=576) {
+            this.graphRadius = 150
+            this.center = new CoOrdinate((w/2), (h/2)-130);
+            this.vertexRadius = 20
+        }
         this.initializeVertices();
     }
     initializeVertices() { // initializing the vertices with co-ordinates on canvas (x-rCos(theta), y+rSin(theta)) and their indices...
@@ -237,7 +243,7 @@ class Heap {
 // g.comparingEdgesSet.unshift(g.mst);
 // includer()
 var canvas = document.querySelector('canvas');
-canvas.width = 3*window.innerWidth/4;
+canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var cc = canvas.getContext('2d');
 cc.fillStyle = 'black'
@@ -245,13 +251,13 @@ cc.fillRect(0, 0, canvas.width, canvas.height);
 
 
 
-var canvas2 = document.getElementById('myCanvas2');
-canvas2.width = window.innerWidth/4;
-canvas2.height = window.innerHeight;
-document.getElementById("myCanvas2").style.height = window.innerHeight;
-var cc2 = canvas2.getContext('2d');
-cc2.fillStyle = 'black'
-cc2.fillRect(0, 0, canvas2.width, canvas2.height);
+// var canvas2 = document.getElementById('myCanvas2');
+// canvas2.width = window.innerWidth/4;
+// canvas2.height = window.innerHeight;
+// document.getElementById("myCanvas2").style.height = window.innerHeight;
+// var cc2 = canvas2.getContext('2d');
+// cc2.fillStyle = 'black'
+// cc2.fillRect(0, 0, canvas2.width, canvas2.height);
 //----------------------------------------------------------------------//
 function drawNew() {
     vertex = new Vertex(8);
