@@ -1,4 +1,4 @@
-//-----------------EDGE-----------------------//
+//---------------EDGE---------------------//
 class Edge {
     constructor(source, destination, edgeWeight) {
         this.u=source;
@@ -465,8 +465,7 @@ function animateEdge(edge, edgeColor, vertexColor, singleReq) {
 }
 //---------------------------------------------End_of_animation_calls-----------------------------------------------//
 
-
-/* --------------------------------------1.) printing the graph -------------------------------------------------------
+/* -----------------------------------1.) printing the graph -----------------------------------------------
 
 --------------------------------------2.) highlight the initial min Edge found--------------------------------------
 --------------- 2.1) add mst[0] to finalized edges
@@ -497,7 +496,7 @@ function getIndexOfEdge(edge, edgeSet) {
             return i
         }
     }
-    return 0;
+    return -1;
 }
 
 function modifyComparingEdgeSet(index) {
@@ -581,11 +580,22 @@ async function addEdgeFromConsole() {
     var vertex_1 = document.getElementById("vertex-1").value
     var vertex_2 = document.getElementById("vertex-2").value
     var weight = document.getElementById("edgeWeight").value
+    if(!(exists(vertex_1, vertex_2) || weight=='' || vertex_1==vertex_2)) {
+        g.addEdge(Number.parseInt(vertex_1)-1, Number.parseInt(vertex_2)-1, Number.parseInt(weight))
+        animateEdge(new Edge(Number.parseInt(vertex_1)-1, Number.parseInt(vertex_2)-1, Number.parseInt(weight)), '#2F4F4F', '#D3D3D3', true)
+        await halt(1500)
+        putConsoleWeight(vertex_1, vertex_2, weight, '#B0C4DE');
+    }
     document.getElementById("edgeWeight").value = ''
-    g.addEdge(Number.parseInt(vertex_1)-1, Number.parseInt(vertex_2)-1, Number.parseInt(weight))
-    animateEdge(new Edge(Number.parseInt(vertex_1)-1, Number.parseInt(vertex_2)-1, Number.parseInt(weight)), '#2F4F4F', '#D3D3D3', true)
-    await halt(1500)
-    putConsoleWeight(vertex_1, vertex_2, weight, '#B0C4DE');
+
+    function exists(vertex_1, vertex_2) {
+        for(var i=0; i<g.allEdges.length; i++) {
+            if((g.allEdges[i].u==(vertex_1)-1 && g.allEdges[i].v==(vertex_2)-1) || (g.allEdges[i].v==(vertex_1)-1 && g.allEdges[i].u==(vertex_2)-1)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 async function consolePrims() {
