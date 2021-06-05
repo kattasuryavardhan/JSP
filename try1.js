@@ -73,7 +73,7 @@ class Graph {
         this.nVertices = nVertices;
         var w = document.getElementById("myCanvas").width
         var h = document.getElementById("myCanvas").height
-        this.center = new CoOrdinate(w/3, 20+(h/3));
+        this.center = new CoOrdinate(w/2, 50+(h/3));
         this.graphRadius = 220;
         this.vertexRadius=25;
         if(this.nVertices>8)
@@ -516,7 +516,7 @@ async function includer() {
     await halt(1000)
     animateEdge(g.mst[0], '#FFD700', '#00BFFF', true)
     await halt(1000)
-    putConsoleWeight((g.mst[0].u)+1, (g.mst[0].v)+1, g.mst[0].edgeWeight, '#00BFFF')
+    putConsoleWeight((g.mst[0].u)+1, (g.mst[0].v)+1, g.mst[0].edgeWeight, '#FF4500')
     finalVertices = [g.vertices[g.minEdge.u], g.vertices[g.minEdge.v]]
     await halt(2000)
     for(var i=1; i<g.comparingEdgesSet.length; i++) {
@@ -530,7 +530,7 @@ async function includer() {
         await halt(1500)
         animateEdge(g.mst[i], '#FFD700', '#00BFFF', true)
         await halt(1000)
-        putConsoleWeight((g.mst[i].u)+1, (g.mst[i].v)+1, g.mst[i].edgeWeight, '#00BFFF');
+        putConsoleWeight((g.mst[i].u)+1, (g.mst[i].v)+1, g.mst[i].edgeWeight, '#FF4500');
         modifyComparingEdgeSet(i)
         await halt(2000)
         Draw.animateEdgeSet(g.comparingEdgesSet[i], '#D3D3D3', '#FFFAFA', false) // try to snap them away instead of animation...
