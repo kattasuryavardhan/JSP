@@ -9,8 +9,8 @@
     <body style="background-color:rgb(0, 0, 0);">
         <div class="container mb-2">
             <div class="row mt-3">
-                <label class="form-label col-1 mt-1" style="color: rgb(255, 255, 255); font-size: 1.2em;">Vertices</label>
-                <div class="col-2">
+                <label class="form-label col-2 mt-1" style="color: rgb(255, 255, 255); font-size: 1.2em;">Vertices</label>
+                <div class="col-3">
                     <select id = "vertices" class="form-select">
                         <option selected value="0">Zero</option>
                         <option value="1">One</option>
@@ -24,7 +24,7 @@
                         <option value="9">Nine</option>
                     </select>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <button id="setVertices" onclick="fixVertices()" type="button" class="btn btn-success btn-sm mt-1">
                         Fix Vertices
                     </button>
@@ -34,19 +34,19 @@
                 <div class="col-2 mt-1">
                     <select name="vertex-1" id="vertex-1" class="form-select" style="display: none">
                     </select>
-                    <select name="vertex-2" id="vertex-2" class="form-select" style="display: none">
-                    </select>
-                    <input type="text" name="edgeWeight" id="edgeWeight" class="form" style="display: none; height:40px; width: 5rem"/>
-                    <button id="addEdge" onclick="addEdgeFromConsole()" type="button" class="btn btn-success btn-sm mt-1" style="display: none;" >Add Edge
-                    </button>
-                </div>
-                <!-- <div class="col-2 mt-1">
-                </div> -->
-                <!-- <div class="col-2 mt-1">
                 </div>
                 <div class="col-2 mt-1">
-                        
-                </div> -->
+                    <select name="vertex-2" id="vertex-2" class="form-select" style="display: none">
+                    </select>
+                </div>
+                <div class="col-2 mt-1">
+                    <input type="text" name="edgeWeight" id="edgeWeight" class="form" style="display: none; height:40px; width: 5rem"/>
+                </div>
+                <div class="col-2 mt-1">
+                    <button id="addEdge" onclick="addEdgeFromConsole()" type="button" class="btn btn-success btn-sm mt-1" style="display: none;" >
+                        Add Edge
+                    </button>
+                </div>
                 <div class="col-2">
                     <button id="prims" onclick="consolePrims()" type="button" class="btn btn btn-warning btn-sm mt-1" style="display: none;" >
                         Prims
