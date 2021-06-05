@@ -2,23 +2,28 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title></title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     </head>
     <body class="container" style="background-color:rgb(0, 0, 0);">
         <div class="row">
-            <div class="col">
+            <div class="col mt-4">
                 <h2 class="text-center text-white" style="font-family:'MV Boli';">Visualizing Prims Algorithm</h2>
             </div>
         </div>
+        <hr style="border: 2px solid rgb(234, 238, 28);">
         <div class="row">
-            <div class="col-md-8 offset-md-3 pl-5">
+            <!-- <div class="col-12 col-md-8 offset-md-4  pl-5 ">
                 <div class="row mt-3 mb-2">
-                <div class="col-lg-2 col-sm-2">
+                <div class="col-md-1 col-sm-2"> -->
+
+                    <div class="col-md-8 offset-md-4 pl-5">
+                        <div class="row mt-3 mb-2">
+                        <div class="col-lg-2 col-sm-2">
                     <label class="form-label mt-1" style="color: rgb(255, 255, 255); font-size: 1.2em;">Vertices</label>
                     </div>
-                    <div class="col-sm-3 col-lg-2">
+                    <div class="col-sm-3 col-md-2">
                         <select id = "vertices" class="form-select">
                             <option selected value="3">Three</option>
                             <option value="4">Four</option>
@@ -66,12 +71,12 @@
             </div>
         </div>
             <div class="row">
-                <div class="col col-lg-8">
+                <div class="col col-md-8">
                     <canvas id="myCanvas"> </canvas>
                 </div>
-                <div class="col-lg-4">
+                <!-- <div class="col-lg-4">
                     <canvas id="myCanvas2" class=''> </canvas>
-                </div>
+                </div> -->
             </div>
         </div>
         
