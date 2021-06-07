@@ -521,7 +521,7 @@ async function includer() {
     await halt(1000)
     animateEdge(g.mst[0], '#FFD700', '#00BFFF', true)
     await halt(1000)
-    putConsoleWeight((g.mst[0].u)+1, (g.mst[0].v)+1, g.mst[0].edgeWeight, '#FF4500')
+    putConsoleWeight((g.mst[0].u)+1, (g.mst[0].v)+1, g.mst[0].edgeWeight, '#4169E1', true)
     finalVertices = [g.vertices[g.minEdge.u], g.vertices[g.minEdge.v]]
     await halt(2000)
     for(var i=1; i<g.comparingEdgesSet.length; i++) {
@@ -535,7 +535,7 @@ async function includer() {
         await halt(1500)
         animateEdge(g.mst[i], '#FFD700', '#00BFFF', true)
         await halt(1000)
-        putConsoleWeight((g.mst[i].u)+1, (g.mst[i].v)+1, g.mst[i].edgeWeight, '#FF4500');
+        putConsoleWeight((g.mst[i].u)+1, (g.mst[i].v)+1, g.mst[i].edgeWeight, '#4169E1', true);
         modifyComparingEdgeSet(i)
         await halt(2000)
         Draw.animateEdgeSet(g.comparingEdgesSet[i], '#D3D3D3', '#FFFAFA', false) // try to snap them away instead of animation...
@@ -590,7 +590,7 @@ async function addEdgeFromConsole() {
         g.addEdge(Number.parseInt(vertex_1)-1, Number.parseInt(vertex_2)-1, Number.parseInt(weight))
         animateEdge(new Edge(Number.parseInt(vertex_1)-1, Number.parseInt(vertex_2)-1, Number.parseInt(weight)), '#2F4F4F', '#D3D3D3', true)
         await halt(1500)
-        putConsoleWeight(vertex_1, vertex_2, weight, '#B0C4DE');
+        putConsoleWeight(vertex_1, vertex_2, weight, '#B0C4DE', false);
     }
     document.getElementById("edgeWeight").value = ''
 
@@ -616,7 +616,7 @@ async function consolePrims() {
 
 //------------extract edgeWriter and hilight accordingly------------//
 
-function putConsoleWeight(vertex_1, vertex_2, weight, color) {
+function putConsoleWeight(vertex_1, vertex_2, weight, color, rewrite) {
     if(vertex_1>vertex_2) {
         var t = vertex_1;
         vertex_1 = vertex_2;
@@ -630,13 +630,16 @@ function putConsoleWeight(vertex_1, vertex_2, weight, color) {
     a = (cx2+cx1)/2
     b = (cy2+cy1)/2
     if(Number.parseInt(vertex_1)+Number.parseInt(g.nVertices/2)==vertex_2 || Number.parseInt(vertex_2)+Number.parseInt(g.nVertices/2)==vertex_1) {
-        a = ((4*cx2)+(2*cx1))/6
-        b = ((4*cy2)+(2*cy1))/6
+        a = ((5*cx2)+(3*cx1))/8
+        b = ((5*cy2)+(3*cy1))/8
         console.log('yes')
     }
     cn = new CoOrdinate(a.toFixed(2), b.toFixed(2))
     cc.fillStyle = color;
-    cc.font = "italic 18px Arial"
+    cc.font = "italic 19px Arial"
     cc.fillText(weight.toString(), cn.x-3, cn.y-3)
+    if(rewrite) {
+        cc.fillText(weight.toString(), cn.x-3, cn.y-3)
+    }
     cc.beginPath()
 }
